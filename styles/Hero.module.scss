@@ -1,0 +1,50 @@
+.hero_section{
+  width: 100%;
+  height: 100vh;
+  canvas{
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.nav_section {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: #fff2cf;
+  & li {
+    list-style: circle;
+    padding: 8px 0px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transform: translate(0px, 0px);
+    transition: all 0.3s ease;
+    &:hover{
+      color: #ffc02e;
+      transform: translate(-20px, 0px);
+    }
+  }
+}
+
+.nav_social {
+  position: absolute;
+  bottom: 30px;
+  left: 25px;
+  color: #fff2cf;
+  width: 24px;
+  & li {
+    padding: 8px 0;
+    transition: all 0.3s ease;
+    transform: translate(0px, 0px);
+    svg {
+      stroke: #fff2cf;
+    }
+    &:hover{
+      svg{
+        stroke:  #ffc02e;
+      }
+      transform: translate(0px, -5px);
+    }
+  }
+}
