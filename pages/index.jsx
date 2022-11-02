@@ -22,6 +22,7 @@ const DynamicLoader = dynamic(() => import("../components/loader"));
 // import Cursor from "../components/customCursor";
 
 export default function Home() {
+  let aboutCanvasWrapper = useRef(false);
   const [isLoader, setLoader] = useState(true);
 
   const hero = useRef(null);
@@ -36,9 +37,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    window.addEventListener("click",(e)=>{
-      console.log(e.target.id)
-    })
     setTimeout(() => setLoader(false), 5000);
   }, []);
 
@@ -92,13 +90,14 @@ export default function Home() {
           about={about}
           work={work}
         />
-        {/* <DynamicAboutSection
+        <Script src="./js/main.js" />
+        <DynamicAboutSection
           aboutCanvasWrapper={aboutCanvasWrapper}
           about={about}
           work={work}
           scrollToSection={scrollToSection}
-        /> */}
-        {/* <DynamicWorkSection work={work} scrollToSection={scrollToSection} /> */}
+        />
+        <DynamicWorkSection work={work} scrollToSection={scrollToSection} />
       </main>
     </div>
   );

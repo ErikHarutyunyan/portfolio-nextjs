@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.7.1",
     "@next/bundle-analyzer": "^13.0.1",
     "framer-motion": "^7.6.2",
     "next": "12.3.1",

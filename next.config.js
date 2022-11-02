@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
-  compress: true
+  compress: true,
+  experimental: {
+    nextScriptWorkers: true,
+  },
 }
 
 // const withBundleAnalyzer = require('@next/bundle-analyzer')({

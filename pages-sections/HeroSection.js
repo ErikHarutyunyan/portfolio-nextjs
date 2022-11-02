@@ -1,5 +1,3 @@
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
 // Style
 import {
   hero_section,
@@ -11,24 +9,16 @@ import {
 import items from "../components/data/dataSocial";
 // Svg Icons
 import { CodeSandBoxIcon, GitHubIcon, LinkedinIcon } from "../components/svg";
-import Script from "next/script";
 
 export default function HeroSection({ hero, scrollToSection, about, work }) {
-  const router = useRouter();
-
-  const handleClick = (text) => {
-    // e.preventDefault();
-    router.push(`/${text}`);
-  };
-
   return (
     <section ref={hero} className={hero_section}>
       <canvas className="p-canvas-webgl" id="canvas-webgl"></canvas>
       <ul className={nav_section}>
-        <li onClick={() => handleClick("about")}>
+        <li onClick={() => scrollToSection(about)}>
           <a>About</a>
         </li>
-        <li onClick={() => handleClick("work")}>
+        <li onClick={() => scrollToSection(work)}>
           <a>Works</a>
         </li>
         <li>
@@ -62,8 +52,6 @@ export default function HeroSection({ hero, scrollToSection, about, work }) {
         <div className="chevron"></div>
         <div className="chevron"></div>
       </div>
-      
-      <Script src="./js/main.js" />
     </section>
   );
 }
