@@ -6,17 +6,16 @@ const Wrapper = (props) => {
   return <span className={`word_wrapper${props.num}`}>{props.children}</span>;
 };
 
-// Map API "type" vaules to JSX tag names
-const tagMap = {
-  aboutHeader: "span",
-  aboutName: "span",
-  //   aboutInfo: "p",
-};
-
 // AnimatedCharacters
 // Handles the deconstruction of each word and character to setup for the
 // individual character animations
 const AnimatedCharacters = (props) => {
+  // Map API "type" vaules to JSX tag names
+  const tagMap = {
+    aboutHeader: "span",
+    aboutName: "span",
+    //   aboutInfo: "p",
+  };
   // Framer Motion variant object, for controlling animation
   const item = {
     hidden: {
@@ -50,11 +49,19 @@ const AnimatedCharacters = (props) => {
 
   const ClassName = props.class;
   return (
-    <Tag className={ClassName == "about_header"?props.s.about_header: ClassName == "about_footer"?props.s.about_footer:null}>
+    <Tag
+      className={
+        ClassName == "about_header"
+          ? props.s.about_header
+          : ClassName == "about_footer"
+          ? props.s.about_footer
+          : null
+      }
+    >
       {words.map((word, index) => {
         return (
           // Wrap each word in the Wrapper component
-          <Wrapper key={index} num={index} >
+          <Wrapper key={index} num={index}>
             {words[index].flat().map((element, index) => {
               return (
                 <span
@@ -63,7 +70,6 @@ const AnimatedCharacters = (props) => {
                     display: "inline-block",
                   }}
                   key={index}
-                  
                 >
                   <motion.span
                     style={{ display: "inline-block" }}

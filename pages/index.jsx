@@ -18,11 +18,10 @@ const DynamicWorkSection = dynamic(() =>
 // Components
 const DynamicLoader = dynamic(() => import("../components/loader"));
 // import Loader from "../components/loader";
-const DynamicCursor = dynamic(() => import("../components/customCursor"));
+// const DynamicCursor = dynamic(() => import("../components/customCursor"));
 // import Cursor from "../components/customCursor";
 
 export default function Home() {
-  let aboutCanvasWrapper = useRef(false);
   const [isLoader, setLoader] = useState(true);
 
   const hero = useRef(null);
@@ -37,7 +36,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    setTimeout(() => setLoader(false), 3500);
+    window.addEventListener("click",(e)=>{
+      console.log(e.target.id)
+    })
+    setTimeout(() => setLoader(false), 5000);
   }, []);
 
   return (
@@ -83,21 +85,21 @@ export default function Home() {
       </Head>
       <main>
         {isLoader && <DynamicLoader />}
-        <DynamicCursor />
+        {/* <DynamicCursor /> */}
         <DynamicHeroSection
           hero={hero}
           scrollToSection={scrollToSection}
           about={about}
           work={work}
         />
-        <DynamicAboutSection
+        <Script src="./js/main.js" />
+        {/* <DynamicAboutSection
           aboutCanvasWrapper={aboutCanvasWrapper}
           about={about}
           work={work}
           scrollToSection={scrollToSection}
-        />
-        <DynamicWorkSection work={work} scrollToSection={scrollToSection} />
-        <Script src="./js/main.js" />
+        /> */}
+        {/* <DynamicWorkSection work={work} scrollToSection={scrollToSection} /> */}
       </main>
     </div>
   );

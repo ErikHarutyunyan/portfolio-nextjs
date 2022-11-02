@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 // Style
 import {
   hero_section,
@@ -12,14 +13,21 @@ import items from "../components/data/dataSocial";
 import { CodeSandBoxIcon, GitHubIcon, LinkedinIcon } from "../components/svg";
 
 export default function HeroSection({ hero, scrollToSection, about, work }) {
+  const router = useRouter();
+
+  const handleClick = (text) => {
+    // e.preventDefault();
+    router.push(`/${text}`);
+  };
+
   return (
     <section ref={hero} className={hero_section}>
       <canvas className="p-canvas-webgl" id="canvas-webgl"></canvas>
       <ul className={nav_section}>
-        <li onClick={() => scrollToSection(about)}>
+        <li onClick={() => handleClick("about")}>
           <a>About</a>
         </li>
-        <li onClick={() => scrollToSection(work)}>
+        <li onClick={() => handleClick("work")}>
           <a>Works</a>
         </li>
         <li>

@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-
 // Three js
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -9,62 +8,62 @@ import { STLLoader } from "three/examples/jsm/loaders/STLLoader";
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 // Components
-const DynamicAnimatedText = dynamic(() =>
-  import("../components/about/AnimatedText")
-);
-// import AnimatedText from "../components/about/AnimatedText";
+// const DynamicAnimatedText = dynamic(() =>
+//   import("../components/about/AnimatedText")
+// );
+import AnimatedText from "../components/about/AnimatedText";
 // Style
 import s from "../styles/About.module.scss";
 
-const placeholderText = [
-  { type: "aboutHeader", text: "Hello I am Erik", class: "about_header" },
-  { type: "aboutName", text: "Harutyunyan Erik", class: "about_footer" },
-];
-const container = {
-  visible: {
-    transition: {
-      staggerChildren: 0.05,
+
+export default function AboutSection(
+  {
+    //   about,
+    //   scrollToSection,
+    //   work,
+  }
+) {
+
+
+  const container = {
+    visible: {
+      transition: {
+        staggerChildren: 0.05,
+      },
     },
-  },
-};
+  };
+  
+  const item = {
+    hidden: {
+      y: "200%",
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
+    },
+    visible: {
+      y: 0,
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
+    },
+  };
+  
+  const textAnimation = {
+    hidden: {
+      y: 100,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
+    },
+  };
 
-const item = {
-  hidden: {
-    y: "200%",
-    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
-  },
-  visible: {
-    y: 0,
-    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
-  },
-};
+  const placeholderText = [
+    { type: "aboutHeader", text: "Hello I am Erik", class: "about_header" },
+    { type: "aboutName", text: "Harutyunyan Erik", class: "about_footer" },
+  ];
 
-const textAnimation = {
-  hidden: {
-    y: 100,
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
-  },
-};
-
-export default function AboutSection({
-  about,
-  scrollToSection,
-  aboutCanvasWrapper,
-  work,
-}) {
+  let aboutCanvasWrapper = useRef(false);
   const control = useAnimation();
   const [ref, inView] = useInView();
-
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    router.push(href);
-  };
 
   useEffect(() => {
     if (aboutCanvasWrapper?.current?.children?.length === 0) {
@@ -170,42 +169,39 @@ export default function AboutSection({
         lightHelper.update();
         renderer.render(scene, camera);
       }
-      aboutCanvasWrapper = false;
+      //   aboutCanvasWrapper = false;
     }
   }, []);
 
-  useEffect(() => {
-    if (inView) {
-      control.start("visible");
-    } else {
-      control.start("hidden");
-    }
-  }, [control, inView]);
+  // useEffect(() => {
+  //   if (inView) {
+  //     control.start("visible");
+  //   } 
+  // }, [control, inView]);
 
   return (
-    <section ref={about} className={s.about_section}>
+    <section
+      // ref={about}
+      className={s.about_section}
+    >
       <div className="bgr"></div>
       <div className={s.about_wrapper}>
         <motion.div
           className={s.about_text}
-          ref={ref}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.8 }}
-          // animate={control}
           variants={container}
         >
           <span className={s.about_name}>
-            {placeholderText.map((item, index) => {
+            {placeholderText?.map((item, index) => {
               return (
-                <DynamicAnimatedText s={s} custom={1} {...item} key={index} />
+                <AnimatedText s={s} {...item} key={index} />
               );
             })}
           </span>
           <motion.p
             className={s.about_info}
             variants={textAnimation}
-            custom={2}
           >
             I'm a Web Developer building the Front-end of Websites and Web
             Applications that leads to the success of the overall product. Check
@@ -221,11 +217,11 @@ export default function AboutSection({
         </motion.div>
         <div id={s.model_wrapper} ref={aboutCanvasWrapper}></div>
       </div>
-      <div className={s.scroll_down} onClick={() => scrollToSection(work)}>
+      {/* <div className={s.scroll_down} onClick={() => scrollToSection(work)}>
         <div className={s.chevron}></div>
         <div className={s.chevron}></div>
         <div className={s.chevron}></div>
-      </div>
+      </div> */}
     </section>
   );
 }

@@ -34,10 +34,10 @@ const Menu = ({ sideBar = false, menuItems, setSideBar = () => {}, setProject, b
         return (
           <motion.article
             key={id}
-            // initial="offscreen"
-            // whileInView="onscreen"
-            // viewport={{ once: true, amount: 0.8 }}
-            // variants={cardVariants}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
+            variants={cardVariants}
             className={styles.projects_content_item}
             style={{ height: height ? height : "310px" }}
             onClick={() => {

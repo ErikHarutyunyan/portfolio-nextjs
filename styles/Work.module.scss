@@ -108,12 +108,12 @@
       }
       &:hover {
         .projects_content_item_info {
-          z-index: 999;
+          z-index: 100;
           transform: none;
           opacity: 1;
         }
         .projects_content_item_info::after {
-          z-index: 999;
+          z-index: 100;
           transform: none;
           opacity: 1;
         }
