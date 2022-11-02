@@ -92,7 +92,6 @@ export default function Home() {
           about={about}
           work={work}
         />
-        <Script src="./js/main.js" />
         {/* <DynamicAboutSection
           aboutCanvasWrapper={aboutCanvasWrapper}
           about={about}

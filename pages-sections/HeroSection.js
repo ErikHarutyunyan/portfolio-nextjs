@@ -11,6 +11,7 @@ import {
 import items from "../components/data/dataSocial";
 // Svg Icons
 import { CodeSandBoxIcon, GitHubIcon, LinkedinIcon } from "../components/svg";
+import Script from "next/script";
 
 export default function HeroSection({ hero, scrollToSection, about, work }) {
   const router = useRouter();
@@ -61,6 +62,8 @@ export default function HeroSection({ hero, scrollToSection, about, work }) {
         <div className="chevron"></div>
         <div className="chevron"></div>
       </div>
+      
+      <Script src="./js/main.js" />
     </section>
   );
 }
