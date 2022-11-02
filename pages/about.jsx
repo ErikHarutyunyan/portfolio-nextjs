@@ -15,7 +15,6 @@ import AnimatedText from "../components/about/AnimatedText";
 // Style
 import s from "../styles/About.module.scss";
 
-
 export default function AboutSection(
   {
     //   about,
@@ -23,8 +22,6 @@ export default function AboutSection(
     //   work,
   }
 ) {
-
-
   const container = {
     visible: {
       transition: {
@@ -32,7 +29,7 @@ export default function AboutSection(
       },
     },
   };
-  
+
   const item = {
     hidden: {
       y: "200%",
@@ -43,7 +40,7 @@ export default function AboutSection(
       transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
     },
   };
-  
+
   const textAnimation = {
     hidden: {
       y: 100,
@@ -176,7 +173,7 @@ export default function AboutSection(
   // useEffect(() => {
   //   if (inView) {
   //     control.start("visible");
-  //   } 
+  //   }
   // }, [control, inView]);
 
   return (
@@ -184,7 +181,7 @@ export default function AboutSection(
       // ref={about}
       className={s.about_section}
     >
-      <div className="bgr"></div>
+      {/* <div className="bgr"></div> */}
       <div className={s.about_wrapper}>
         <motion.div
           className={s.about_text}
@@ -194,15 +191,10 @@ export default function AboutSection(
         >
           <span className={s.about_name}>
             {placeholderText?.map((item, index) => {
-              return (
-                <AnimatedText s={s} {...item} key={index} />
-              );
+              return <AnimatedText s={s} {...item} key={index} />;
             })}
           </span>
-          <motion.p
-            className={s.about_info}
-            variants={textAnimation}
-          >
+          <motion.p className={s.about_info} variants={textAnimation}>
             I'm a Web Developer building the Front-end of Websites and Web
             Applications that leads to the success of the overall product. Check
             out some of my work in the Projects section. I also like sharing
@@ -222,6 +214,9 @@ export default function AboutSection(
         <div className={s.chevron}></div>
         <div className={s.chevron}></div>
       </div> */}
+      <span onClick={() => router.push("/")} className="back">
+        &#60;
+      </span>
     </section>
   );
 }

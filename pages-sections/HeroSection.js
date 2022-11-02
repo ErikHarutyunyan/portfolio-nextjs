@@ -15,14 +15,11 @@ export default function HeroSection({ hero, scrollToSection, about, work }) {
     <section ref={hero} className={hero_section}>
       <canvas className="p-canvas-webgl" id="canvas-webgl"></canvas>
       <ul className={nav_section}>
-        <li onClick={() => scrollToSection(about)}>
-          <a>About</a>
-        </li>
-        <li onClick={() => scrollToSection(work)}>
-          <a>Works</a>
-        </li>
         <li>
-          <a>Resumne</a>
+          <a href="/about">About</a>
+        </li>
+        <li >
+          <a href="/work">work</a>
         </li>
       </ul>
       <ul className={nav_social}>
@@ -47,11 +44,11 @@ export default function HeroSection({ hero, scrollToSection, about, work }) {
           );
         })}
       </ul>
-      <div className="scroll-down" onClick={() => scrollToSection(about)}>
+      {/* <div className="scroll-down" onClick={() => scrollToSection(about)}>
         <div className="chevron"></div>
         <div className="chevron"></div>
         <div className="chevron"></div>
-      </div>
+      </div> */}
     </section>
   );
 }

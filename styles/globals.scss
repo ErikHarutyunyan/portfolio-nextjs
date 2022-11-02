@@ -199,3 +199,15 @@ span.word_wrapper3 {
   background: #ffc02e !important;
   color: #fff2cf !important;
 }
+
+.back {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  color: #ffc02e;
+  top: 2rem;
+  left: 2rem;
+  font-size: 5rem;
+  cursor: pointer;
+}

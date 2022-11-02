@@ -1,5 +1,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+
 // Components
 const DynamicMenu = dynamic(() => import("../components/projects"));
 const DynamicCategories = dynamic(() => import("../components/categories"));
@@ -14,6 +16,7 @@ import { section, workSection } from "../styles/Work.module.scss";
 const allCategories = ["all", ...new Set(items.map((item) => item.category))];
 
 export default function WorkSection() {
+  const router = useRouter();
   const [menuItems, setMenuItems] = useState(items);
 
   const [sideBar, setSideBar] = useState(false);
@@ -40,12 +43,20 @@ export default function WorkSection() {
   return (
     <section className={workSection}>
       <div className={section}>
-        <DynamicCategories allCategories={allCategories} filterItems={filterItems} />
+        <DynamicCategories
+          allCategories={allCategories}
+          filterItems={filterItems}
+        />
         <DynamicMenu
           {...{ sideBar, setSideBar, menuItems, setProject, bodyOverflow }}
         />
       </div>
-      <DynamicSidebar {...{ sideBar, setSideBar, menuItems, project, bodyOverflow }} />
+      <DynamicSidebar
+        {...{ sideBar, setSideBar, menuItems, project, bodyOverflow }}
+      />
+      <span onClick={() => router.push('/')} className="back">
+        &#60;
+      </span>
     </section>
   );
 }

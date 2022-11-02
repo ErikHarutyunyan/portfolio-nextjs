@@ -91,13 +91,13 @@ export default function Home() {
           work={work}
         />
         <Script src="./js/main.js" />
-        <DynamicAboutSection
+        {/* <DynamicAboutSection
           aboutCanvasWrapper={aboutCanvasWrapper}
           about={about}
           work={work}
           scrollToSection={scrollToSection}
         />
-        <DynamicWorkSection work={work} scrollToSection={scrollToSection} />
+        <DynamicWorkSection work={work} scrollToSection={scrollToSection} /> */}
       </main>
     </div>
   );
