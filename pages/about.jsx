@@ -85,28 +85,32 @@ export default function AboutSection(
           1,
           1000
         );
-        if (window.matchMedia("(max-width: 850px)").matches) {
-          camera.position.set(110, 35, 9.5);
-        } else {
-          camera.position.set(75, 35, 9.5);
-        }
+
         camera.rotation.set(-1.29, 1.2, 1.26);
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.minDistance = 0;
-        if (window.matchMedia("(max-width: 850px)").matches) {
+
+        if (window.matchMedia("(max-width: 600px)").matches) {
+          camera.position.set(120, 35, 9.5);
           controls.maxDistance = 180;
+          controls.enableZoom = false;
+          controls.enableRotate = false;
+          controls.enablePan = false;
+          controls.enabled = false;
+          controls.noPan = true;
+          controls.noKeys = true;
+          controls.noRotate = true;
+          controls.noZoom = true;
+        } else if (window.matchMedia("(max-width: 850px)").matches) {
+          camera.position.set(110, 35, 9.5);
+          controls.maxDistance = 100;
         } else {
-          controls.maxDistance = 80;
+          camera.position.set(75, 35, 9.5);
         }
         controls.target.set(0, 18, 0);
         controls.minPolarAngle = 0.8;
         controls.maxPolarAngle = 1.5;
-        // to disable zoom
-        controls.enableZoom = false;
-        // to disable rotation
-        controls.enableRotate = true;
-        // to disable pan
-        controls.enablePan = false;
+
         controls.update();
         const ambient = new THREE.HemisphereLight(0xffffff, 0x444444, 0.05);
         scene.add(ambient);

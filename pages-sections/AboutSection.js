@@ -110,6 +110,8 @@ export default function AboutSection({
         controls.enableRotate = true;
         // to disable pan
         controls.enablePan = false;
+
+        
         controls.update();
         const ambient = new THREE.HemisphereLight(0xffffff, 0x444444, 0.05);
         scene.add(ambient);
