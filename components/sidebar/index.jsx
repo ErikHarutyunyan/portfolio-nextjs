@@ -132,7 +132,7 @@ export default function Sidebar({
             </div>
             {project?.website && (
               <a
-                href="https://farmhub360.com"
+                href={project.website}
                 target="_blank"
                 className={styles.sidebar_open}
                 rel="noopener noreferrer"

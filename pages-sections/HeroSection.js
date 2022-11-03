@@ -16,10 +16,21 @@ export default function HeroSection({ hero, scrollToSection, about, work }) {
       <canvas className="p-canvas-webgl" id="canvas-webgl"></canvas>
       <ul className={nav_section}>
         <li>
-          <a href="/about">About</a>
+          <a className="nav_item" href="/about">
+            <span className="fire">A</span>
+            <span className="burn">b</span>
+            <span className="burn">o</span>
+            <span className="burn">u</span>
+            <span className="fire">t</span>
+          </a>
         </li>
-        <li >
-          <a href="/work">work</a>
+        <li>
+          <a className="nav_item" href="/work">
+            <span className="fire">W</span>
+            <span className="burn">o</span>
+            <span className="burn">r</span>
+            <span className="fire">k</span>
+          </a>
         </li>
       </ul>
       <ul className={nav_social}>

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 // Three js
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -61,6 +61,7 @@ export default function AboutSection(
   let aboutCanvasWrapper = useRef(false);
   const control = useAnimation();
   const [ref, inView] = useInView();
+  const router = useRouter();
 
   useEffect(() => {
     if (aboutCanvasWrapper?.current?.children?.length === 0) {
