@@ -154,7 +154,12 @@ export default function AboutSection() {
         mesh.receiveShadow = true;
         scene.add(mesh);
         new STLLoader().load("./model/robot.stl", function (geometry) {
-          geometry.scale(0.35, 0.35, 0.23);
+          if (window.matchMedia("(max-width: 480px)").matches) {
+            geometry.scale(0.25, 0.35, 0.23);
+          } else {
+            geometry.scale(0.35, 0.35, 0.23);
+          }
+
           geometry.computeVertexNormals();
           const material = new THREE.MeshLambertMaterial();
           const mesh = new THREE.Mesh(geometry, material);
@@ -193,18 +198,27 @@ export default function AboutSection() {
       {/* <Cursor /> */}
       <Head>
         <meta charSet="UTF-8" />
-        <meta name="description" content="Emil and Erik Harutyunyan's Portfolio About" />
+        <meta
+          name="description"
+          content="Emil and Erik Harutyunyan's Portfolio About"
+        />
         <meta name="keywords" content="NextJs, React, JavaScript" />
         <meta name="author" content="Emil and Erik" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Harutyunyan's Portfolio About" />
-        <meta property="og:description" content="Emil and Erik Harutyunyan's Portfolio About" />
+        <meta
+          property="og:description"
+          content="Emil and Erik Harutyunyan's Portfolio About"
+        />
         <meta property="og:image" content="/img/common/ogp_sun.jpg" />
         <meta property="og:site_name" content="Harutyunyan's Portfolio About" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Harutyunyan's Portfolio About" />
-        <meta name="twitter:description" content="Emil and Erik Harutyunyan's Portfolio About" />
+        <meta
+          name="twitter:description"
+          content="Emil and Erik Harutyunyan's Portfolio About"
+        />
         <meta name="twitter:image" content="/img/common/ogp_sun.jpg" />
         <title>Harutyunyan's Portfolio About</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -245,7 +259,22 @@ export default function AboutSection() {
               })}
             </span>
             <motion.p className={s.about_info} variants={textAnimation}>
-              {dataAbout[0]?.aboutInfo }
+              {/* {dataAbout[0]?.aboutInfo } */}
+              I'm a Web Developer building the Front-end of Websites and Web
+              Applications that leads to the success of the overall product.
+              Check out some of my work in the work page. I also like sharing
+              content related to the stuff that I have learned over the years in
+              Web Development so it can help other people of the Dev Community.
+              Feel free to connect or follow me on my <a href="https://www.linkedin.com/in/erikharutyunyan/" className="aboutLink" target="_blank">
+                Linkedin
+              </a>{" "}
+              where I post useful content related to Web Development and
+              Programming. Known for my whimsical creations, ability to context
+              switch, and deliver innovative solutions. I'm open to Job
+              opportunities where I can contribute, learn and grow. If you have
+              a good opportunity that matches my skills and experience then
+              don't hesitate to contact me, here is my {" "}
+              <a href="/" className="aboutLink">CV</a>.
             </motion.p>
           </motion.div>
           <div id={s.model_wrapper} ref={aboutCanvasWrapper}></div>
