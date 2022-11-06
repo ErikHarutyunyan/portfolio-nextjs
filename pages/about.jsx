@@ -262,10 +262,19 @@ export default function AboutSection() {
               {/* {dataAbout[0]?.aboutInfo } */}
               I'm a Web Developer building the Front-end of Websites and Web
               Applications that leads to the success of the overall product.
-              Check out some of my work in the work page. I also like sharing
-              content related to the stuff that I have learned over the years in
-              Web Development so it can help other people of the Dev Community.
-              Feel free to connect or follow me on my <a href="https://www.linkedin.com/in/erikharutyunyan/" className="aboutLink" target="_blank">
+              Check out some of my work in the{" "}
+              <a href="/work" className="aboutLink" target="_blank">
+                work
+              </a>{" "}
+              page. I also like sharing content related to the stuff that I have
+              learned over the years in Web Development so it can help other
+              people of the Dev Community. Feel free to connect or follow me on
+              my{" "}
+              <a
+                href="https://www.linkedin.com/in/erikharutyunyan/"
+                className="aboutLink"
+                target="_blank"
+              >
                 Linkedin
               </a>{" "}
               where I post useful content related to Web Development and
@@ -273,8 +282,11 @@ export default function AboutSection() {
               switch, and deliver innovative solutions. I'm open to Job
               opportunities where I can contribute, learn and grow. If you have
               a good opportunity that matches my skills and experience then
-              don't hesitate to contact me, here is my {" "}
-              <a href="/" className="aboutLink">CV</a>.
+              don't hesitate to contact me, here is my{" "}
+              <a href="/" className="aboutLink">
+                CV
+              </a>
+              .
             </motion.p>
           </motion.div>
           <div id={s.model_wrapper} ref={aboutCanvasWrapper}></div>
