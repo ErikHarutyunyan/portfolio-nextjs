@@ -60,7 +60,7 @@ export default function Sidebar({
               </span>
             </div>
             <div className={styles.sidebar_content}>
-              <h3 className={styles.sidebar_content_title}>Piggment</h3>
+              <h3 className={styles.sidebar_content_title}>{project.title}</h3>
               <p className={styles.sidebar_content_text}>{project.desc}</p>
               <Image
                 src={project.img}
@@ -68,8 +68,13 @@ export default function Sidebar({
                 width="463"
                 height="300"
               />
-              <h4>About</h4>
-              <p className={styles.sidebar_content_text}>{project.about}</p>
+              {project?.about && (
+                <>
+                  <h4>About</h4>
+                  <p className={styles.sidebar_content_text}>{project.about}</p>
+                </>
+              )}
+
               <h4>Technologies</h4>
               <p className={styles.sidebar_content_tech}>
                 {project.tech?.map((item, i) => {

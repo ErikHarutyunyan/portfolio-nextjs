@@ -37,7 +37,6 @@
     }
     }
     @media (max-width: 850px){
-        // flex-direction: column-reverse;
         row-gap: 60px;
     }
   }
@@ -52,20 +51,23 @@
     justify-content: center;
     align-items: center;
     padding-left: 4rem;
-    padding-right: 4rem;
-    @media (max-width: 850px){
-        flex: 100% 1;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 2rem;
-    }
+    padding-right: 4rem;    
     @media (max-width: 1160px){
         flex: 55% 1;
         padding-left: 2rem;
         padding-right: 2rem;
         padding-top: 5rem;
     }
-    
+    @media (max-width: 850px){
+      flex: 100% 1;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      // padding-top: 2rem;
+    }
+    @media (max-width: 320px) {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
   }
   .about_name {
     position: relative;
@@ -76,8 +78,7 @@
         max-width: 32rem;
     }
     @media (max-width: 480px){
-        font-size: 2.5rem;
-        max-width: 21rem;
+        max-width: 24rem;
     }
   }
   .about_title {
@@ -99,7 +100,7 @@
         font-size: 4rem;
     }
     @media (max-width: 480px){
-        font-size: 2.5rem;
+        font-size: 2.7rem;
     }
   }
   .about_footer {
@@ -110,9 +111,6 @@
     font-weight: 600;
     @media (max-width: 1160px){
         font-size: 0.8rem;
-    }
-    @media (max-width: 480px){
-        font-size: 0.5rem;
     }
     span {
       color: #ffc02e;
@@ -128,11 +126,11 @@
     line-height: 2rem;
     color: #fff2cf;
     @media (max-width: 1160px){
-        font-size: 1rem;
+        font-size: 1.3rem;
         max-width: 34rem;
     }
     @media (max-width: 480px){
-        font-size: 0.8rem;
+        font-size: 1.15rem;
         line-height: 1.5rem;
         max-width: 25rem;
     }
@@ -171,19 +169,22 @@
 }
 
 .scroll_down {
-    position: relative;
-    width: 27px;
-    height: 65px;
-    left: 50%;
-    bottom: 80px;
+    display: none;
+    position: absolute;
+    width: 2rem;
+    height: 4.5rem;
+    right: 25px;
+    bottom: 10px;
     cursor: pointer;
+    z-index: 20;
+    transform: rotate(180deg);
     @media (max-width: 850px){
-        bottom: 0px;
-      }
+      display: block;
+    }
     .chevron {
       position: absolute;
-      width: 1.5rem;
-      height: 0.3rem;
+      width: 1.7rem;
+      height: 0.5rem;
       opacity: 0;
       transform: scale(0.3);
       animation: move-chevron 3s ease-out infinite;
@@ -206,17 +207,18 @@
       height: 100%;
       width: 50%;
       background: #ffc02e;
+      
     }
   
     .chevron:before {
       left: 0;
-      transform: skewY(30deg);
+      transform: skewY(-130deg);
     }
   
     .chevron:after {
       right: 0;
       width: 50%;
-      transform: skewY(-30deg);
+      transform: skewY(130deg);
     }
   
     @keyframes move-chevron {

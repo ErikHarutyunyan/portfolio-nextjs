@@ -7,6 +7,7 @@ import { STLLoader } from "three/examples/jsm/loaders/STLLoader";
 // Lib
 import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Cursor from "../components/customCursor";
 // Components
 // const DynamicAnimatedText = dynamic(() =>
 //   import("../components/about/AnimatedText")
@@ -15,13 +16,9 @@ import AnimatedText from "../components/about/AnimatedText";
 // Style
 import s from "../styles/About.module.scss";
 
-export default function AboutSection(
-  {
-    //   about,
-    //   scrollToSection,
-    //   work,
-  }
-) {
+import dataAbout from "../components/data/dataAbout";
+
+export default function AboutSection() {
   const container = {
     visible: {
       transition: {
@@ -54,14 +51,27 @@ export default function AboutSection(
   };
 
   const placeholderText = [
-    { type: "aboutHeader", text: "Hello I am Erik", class: "about_header" },
-    { type: "aboutName", text: "Harutyunyan Erik", class: "about_footer" },
+    {
+      type: "aboutHeader",
+      text: dataAbout[0]?.aboutHeader,
+      class: "about_header",
+    },
+    { type: "aboutName", text: dataAbout[0]?.aboutName, class: "about_footer" },
   ];
 
   let aboutCanvasWrapper = useRef(false);
   const control = useAnimation();
   const [ref, inView] = useInView();
   const router = useRouter();
+
+  const about = useRef(null);
+
+  const scrollToSection = () => {
+    window.scrollTo({
+      top: about.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     if (aboutCanvasWrapper?.current?.children?.length === 0) {
@@ -92,15 +102,15 @@ export default function AboutSection(
 
         if (window.matchMedia("(max-width: 600px)").matches) {
           camera.position.set(120, 35, 9.5);
-          controls.maxDistance = 180;
-          controls.enableZoom = false;
-          controls.enableRotate = false;
-          controls.enablePan = false;
-          controls.enabled = false;
-          controls.noPan = true;
-          controls.noKeys = true;
-          controls.noRotate = true;
-          controls.noZoom = true;
+          controls.maxDistance = 140;
+          // controls.enableZoom = false;
+          // controls.enableRotate = false;
+          // controls.enablePan = false;
+          // controls.enabled = false;
+          // controls.noPan = true;
+          // controls.noKeys = true;
+          // controls.noRotate = true;
+          // controls.noZoom = true;
         } else if (window.matchMedia("(max-width: 850px)").matches) {
           camera.position.set(110, 35, 9.5);
           controls.maxDistance = 100;
@@ -110,7 +120,6 @@ export default function AboutSection(
         controls.target.set(0, 18, 0);
         controls.minPolarAngle = 0.8;
         controls.maxPolarAngle = 1.5;
-
         controls.update();
         const ambient = new THREE.HemisphereLight(0xffffff, 0x444444, 0.05);
         scene.add(ambient);
@@ -182,46 +191,37 @@ export default function AboutSection(
   // }, [control, inView]);
 
   return (
-    <section
-      // ref={about}
-      className={s.about_section}
-    >
-      {/* <div className="bgr"></div> */}
-      <div className={s.about_wrapper}>
-        <motion.div
-          className={s.about_text}
-          initial="hidden"
-          whileInView="visible"
-          variants={container}
-        >
-          <span className={s.about_name}>
-            {placeholderText?.map((item, index) => {
-              return <AnimatedText s={s} {...item} key={index} />;
-            })}
-          </span>
-          <motion.p className={s.about_info} variants={textAnimation}>
-            I'm a Web Developer building the Front-end of Websites and Web
-            Applications that leads to the success of the overall product. Check
-            out some of my work in the Projects section. I also like sharing
-            content related to the stuff that I have learned over the years in
-            Web Development so it can help other people of the Dev Community.
-            Feel free to Connect or Follow me on my Linkedin where I post useful
-            content related to Web Development and Programming I'm open to Job
-            opportunities where I can contribute, learn and grow. If you have a
-            good opportunity that matches my skills and experience then don't
-            hesitate to contact me.
-          </motion.p>
-        </motion.div>
-        <div id={s.model_wrapper} ref={aboutCanvasWrapper}></div>
-      </div>
-      {/* <div className={s.scroll_down} onClick={() => scrollToSection(work)}>
-        <div className={s.chevron}></div>
-        <div className={s.chevron}></div>
-        <div className={s.chevron}></div>
-      </div> */}
-      <span onClick={() => router.push("/")} className="back">
-        &#60;
-      </span>
-    </section>
+    <>
+      {/* <Cursor /> */}
+      <section ref={about} className={s.about_section}>
+        {/* <div className="bgr"></div> */}
+        <div className={s.about_wrapper}>
+          <motion.div
+            className={s.about_text}
+            initial="hidden"
+            whileInView="visible"
+            variants={container}
+          >
+            <span className={s.about_name}>
+              {placeholderText?.map((item, index) => {
+                return <AnimatedText s={s} {...item} key={index} />;
+              })}
+            </span>
+            <motion.p className={s.about_info} variants={textAnimation}>
+              {dataAbout[0]?.aboutInfo }
+            </motion.p>
+          </motion.div>
+          <div id={s.model_wrapper} ref={aboutCanvasWrapper}></div>
+        </div>
+        <div className={s.scroll_down} onClick={scrollToSection}>
+          <div className={s.chevron}></div>
+          <div className={s.chevron}></div>
+          <div className={s.chevron}></div>
+        </div>
+        <span onClick={() => router.push("/")} className="back">
+          &#60;
+        </span>
+      </section>
+    </>
   );
 }

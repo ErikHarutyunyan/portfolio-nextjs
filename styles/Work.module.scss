@@ -3,10 +3,11 @@
   }
   &_title {
     h2 {
-      font-size: 24px;
+      font-size: 2rem;
       font-weight: 900;
       padding: 6rem 0rem 1.5rem;
       position: relative;
+      text-transform: uppercase;
     }
   }
   &_btn {
@@ -18,7 +19,7 @@
     &_filter {
       background: transparent;
       border-color: transparent;
-      font-size: 1rem;
+      font-size: 1.2rem;
       text-transform: capitalize;
       margin: 0 0.5rem;
       letter-spacing: 1px;
@@ -32,15 +33,18 @@
         border: 1px solid #fff2cf;
         color: #ffc02e;
       }
+      @media (max-width: 480px) {
+        font-size: 1rem;
+      }
     }
   }
   &_content {
     &_center {
-      margin: 1.5em 0px;
+      margin: 1.5rem 0rem;
       animation-duration: 1s;
       animation-name: fadeInUp;
       animation-fill-mode: both;
-      column-gap: 1.5em;
+      column-gap: 1.5rem;
       column-count: 2;
       @media screen and (max-width: 767px) {
         column-count: 1;
@@ -60,7 +64,7 @@
       position: relative;
       cursor: pointer;
       object-fit: cover;
-      background-color: #091521;
+      // background-color: #091521;
       background-position: center center;
       background-repeat: no-repeat;
       overflow: hidden;
@@ -77,7 +81,7 @@
         transition: opacity 300ms ease-in-out 0s, transform 300ms ease-in-out 0s;
         h4 {
           color: #fff2cf;
-          font-size: 30px;
+          font-size: 2.14rem;
           font-weight: 800;
           margin-bottom: 0.5rem;
           text-transform: capitalize;
@@ -86,7 +90,7 @@
       &_desc {
         margin-bottom: 0;
         font-size: 16px;
-        color: rgb(213, 213, 213);
+        color: #ffc02e;
       }
       &_technologies {
         display: flex;
@@ -96,13 +100,14 @@
         margin-bottom: 0;
         margin-top: 15px;
         &_techItem {
-          background: rgb(105, 104, 105);
+          background: #000;
           padding: 4px 10px;
           border-radius: 50px;
           text-transform: capitalize;
           font-size: 11px;
           margin-right: 6px;
-          color: #fff2cf;
+          color: #ffc02e;
+          border: 1px solid #fff2cf;
           font-weight: 500;
         }
       }
@@ -140,12 +145,12 @@
         position: absolute;
         inset: 0px;
         z-index: -1;
-        background: radial-gradient(
-          circle at center center,
-          white 10%,
-          whitesmoke 11%,
-          whitesmoke 100%
-        );
+        // background: radial-gradient(
+        //   circle at center center,
+        //   white 10%,
+        //   whitesmoke 11%,
+        //   whitesmoke 100%
+        // );
       }
     }
   }
@@ -207,6 +212,7 @@
       font-size: 17px;
       font-weight: 900;
       color: #fff2cf;
+      text-transform: uppercase;
       cursor: pointer;
     }
 
@@ -227,7 +233,7 @@
     color: #fff2cf;
     font-weight: 600;
     text-align: center;
-    font-size: 0.875em;
+    font-size: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -235,14 +241,15 @@
   }
   &_content {
     h3 {
-      font-size: 22px;
+      font-size: 1.5rem;
       color: #fff2cf;
       font-weight: 800;
       margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
     }
     h4 {
-      font-size: 1.124em;
+      font-size: 1.13rem;
       color: #fff2cf;
       margin-top: 2rem;
       margin-bottom: 0.8rem;
@@ -257,20 +264,20 @@
       border-radius: 11px;
     }
     &_text {
-      font-size: 0.875em;
+      font-size: 1rem;
       color: #fff2cf;
-      margin-bottom: 0.875em;
+      margin-bottom: 1rem;
       &_bottom {
-        font-size: 0.875em;
+        font-size: 1rem;
         color: #fff2cf;
-        margin-bottom: 0.875em;
+        margin-bottom: 1rem;
         margin-top: 2rem;
       }
     }
 
     &_tech {
       color: #fff2cf;
-      font-size: 0.875em;
+      font-size: 1rem;
       display: flex;
       flex-wrap: wrap;
       gap: 5px;

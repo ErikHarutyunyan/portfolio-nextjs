@@ -11,23 +11,20 @@
 .nav_section {
   position: absolute;
   top: 50px;
-  right: 50px;
+  right: 20px;
   display: flex;
-  gap: 30px;
+  gap: 50px;
+  @media (max-width: 480px) {
+    width: 100%;
+    right: 0;
+    justify-content: center;
+  }
   & li {
     position: relative;
     padding: 8px 0px;
     cursor: pointer;
     text-transform: capitalize;
     transition: all 0.3s ease;
-    // &::before {
-    //   position: absolute;
-    //   content: url(../assets/sunbeam.gif);
-    //   width: 15px;
-    //   height: 15px;
-    //   top: 5px;
-    // }
-
     a {
       transform: translate(0px, 0px);
       background-image: -webkit-linear-gradient(top, #111, #0c0c0c);
@@ -36,7 +33,7 @@
       background-image: -o-linear-gradient(top, #111, #0c0c0c);
       text-align: center;
       line-height: 1.4em;
-      text-transform: uppercase;
+      // text-transform: uppercase;
       letter-spacing: 0.3em;
       white-space: nowrap;
       font-weight: 800;
@@ -48,10 +45,12 @@
       vertical-align: middle;
       letter-spacing: 0.2em;
       transition: all 0.3s ease;
+      @media (max-width: 480px) {
+        font-size: 1.8rem;
+      }
     }
 
     &:hover {
-      // transform: translate(-20px, 0px);
       span {
         background: -webkit-linear-gradient(#ffc02e, #fdf7e8);
         -webkit-background-clip: text;
@@ -76,6 +75,9 @@
     svg {
       stroke: #fff2cf;
       width: 35px;
+      @media (max-width: 480px) {
+        width: 25px;
+      }
     }
     &:hover {
       svg {
