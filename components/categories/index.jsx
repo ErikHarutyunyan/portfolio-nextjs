@@ -17,9 +17,9 @@ const Categories = ({ filterItems, allCategories }) => {
           return (
             <button
               key={index}
-              id={`${index}_category`}
+              id={`category_${index}`}
               className={
-                isActive === `${index}_category`
+                isActive === `category_${index}`
                   ? `${styles.projects_btn_filter} active_category`
                   : styles.projects_btn_filter
               }

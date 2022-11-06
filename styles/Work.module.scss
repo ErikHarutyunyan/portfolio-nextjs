@@ -64,7 +64,7 @@
       position: relative;
       cursor: pointer;
       object-fit: cover;
-      // background-color: #091521;
+      background-color: #0c0200;
       background-position: center center;
       background-repeat: no-repeat;
       overflow: hidden;
@@ -145,12 +145,6 @@
         position: absolute;
         inset: 0px;
         z-index: -1;
-        // background: radial-gradient(
-        //   circle at center center,
-        //   white 10%,
-        //   whitesmoke 11%,
-        //   whitesmoke 100%
-        // );
       }
     }
   }

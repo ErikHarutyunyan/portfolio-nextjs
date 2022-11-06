@@ -2,24 +2,21 @@ import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Script from "next/script";
-// Pages
-const DynamicHeroSection = dynamic(() =>
-  import("../pages-sections/HeroSection")
-);
-const DynamicAboutSection = dynamic(() =>
-  import("../pages-sections/AboutSection")
-);
-const DynamicWorkSection = dynamic(() =>
-  import("../pages-sections/WorkSection")
-);
-// import HeroSection from "../pages-sections/HeroSection";
-// import AboutSection from "../pages-sections/AboutSection";
-// import WorkSection from "../pages-sections/WorkSection";
 // Components
 const DynamicLoader = dynamic(() => import("../components/loader"));
-// import Loader from "../components/loader";
-// const DynamicCursor = dynamic(() => import("../components/customCursor"));
-// import Cursor from "../components/customCursor";
+
+// Style
+import {
+  hero_section,
+  nav_section,
+  nav_social,
+} from "../styles/Hero.module.scss";
+
+// Data Social
+import items from "../components/data/dataSocial";
+
+// Svg Icons
+import { CodeSandBoxIcon, GitHubIcon, LinkedinIcon } from "../components/svg";
 
 export default function Home() {
   let aboutCanvasWrapper = useRef(false);
@@ -44,20 +41,29 @@ export default function Home() {
     <div>
       <Head>
         <meta charSet="UTF-8" />
-        <meta name="description" content="My Portfolio" />
+        <meta
+          name="description"
+          content="Emil and Erik Harutyunyan's Portfolio"
+        />
         <meta name="keywords" content="NextJs, React, JavaScript" />
-        <meta name="author" content="Erik Harutyunyan" />
+        <meta name="author" content="Emil and Erik" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Portfolio" />
-        <meta property="og:description" content="Portfolio Erik Harutyunyan" />
+        <meta property="og:title" content="Harutyunyan's Portfolio" />
+        <meta
+          property="og:description"
+          content="Emil and Erik Harutyunyan's Portfolio"
+        />
         <meta property="og:image" content="/img/common/ogp_sun.jpg" />
-        <meta property="og:site_name" content="Portfolio Erik Harutyunyan" />
+        <meta property="og:site_name" content="Harutyunyan's Portfolio" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Portfolio" />
-        <meta name="twitter:description" content="Portfolio Erik Harutyunyan" />
+        <meta name="twitter:title" content="Harutyunyan's Portfolio" />
+        <meta
+          name="twitter:description"
+          content="Emil and Erik Harutyunyan's Portfolio"
+        />
         <meta name="twitter:image" content="/img/common/ogp_sun.jpg" />
-        <title>Portfolio</title>
+        <title>Harutyunyan's Portfolio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="apple-touch-icon"
@@ -83,21 +89,51 @@ export default function Home() {
       </Head>
       <main>
         {isLoader && <DynamicLoader />}
-        {/* <DynamicCursor /> */}
-        <DynamicHeroSection
-          hero={hero}
-          scrollToSection={scrollToSection}
-          about={about}
-          work={work}
-        />
+        <section ref={hero} className={hero_section}>
+          <canvas className="p-canvas-webgl" id="canvas-webgl"></canvas>
+          <ul className={nav_section}>
+            <li>
+              <a className="nav_item" href="/about">
+                <span className="fire">A</span>
+                <span className="burn">b</span>
+                <span className="burn">o</span>
+                <span className="burn">u</span>
+                <span className="fire">t</span>
+              </a>
+            </li>
+            <li>
+              <a className="nav_item" href="/work">
+                <span className="fire">W</span>
+                <span className="burn">o</span>
+                <span className="burn">r</span>
+                <span className="fire">k</span>
+              </a>
+            </li>
+          </ul>
+          <ul className={nav_social}>
+            {items?.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a
+                    href={item.url}
+                    aria-label={item.title}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {item?.title === "GitHub" ? (
+                      <GitHubIcon />
+                    ) : item?.title === "Linkedin" ? (
+                      <LinkedinIcon />
+                    ) : item?.title === "CodeSandbox" ? (
+                      <CodeSandBoxIcon />
+                    ) : null}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
         <Script src="./js/main.js" />
-        {/* <DynamicAboutSection
-          aboutCanvasWrapper={aboutCanvasWrapper}
-          about={about}
-          work={work}
-          scrollToSection={scrollToSection}
-        />
-        <DynamicWorkSection work={work} scrollToSection={scrollToSection} /> */}
       </main>
     </div>
   );

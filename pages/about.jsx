@@ -9,14 +9,12 @@ import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Cursor from "../components/customCursor";
 // Components
-// const DynamicAnimatedText = dynamic(() =>
-//   import("../components/about/AnimatedText")
-// );
 import AnimatedText from "../components/about/AnimatedText";
 // Style
 import s from "../styles/About.module.scss";
 
 import dataAbout from "../components/data/dataAbout";
+import Head from "next/head";
 
 export default function AboutSection() {
   const container = {
@@ -193,6 +191,45 @@ export default function AboutSection() {
   return (
     <>
       {/* <Cursor /> */}
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="description" content="Emil and Erik Harutyunyan's Portfolio About" />
+        <meta name="keywords" content="NextJs, React, JavaScript" />
+        <meta name="author" content="Emil and Erik" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Harutyunyan's Portfolio About" />
+        <meta property="og:description" content="Emil and Erik Harutyunyan's Portfolio About" />
+        <meta property="og:image" content="/img/common/ogp_sun.jpg" />
+        <meta property="og:site_name" content="Harutyunyan's Portfolio About" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Harutyunyan's Portfolio About" />
+        <meta name="twitter:description" content="Emil and Erik Harutyunyan's Portfolio About" />
+        <meta name="twitter:image" content="/img/common/ogp_sun.jpg" />
+        <title>Harutyunyan's Portfolio About</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7b7b7b" />
+        <meta name="msapplication-TileColor" content="#220600" />
+        <meta name="theme-color" content="#220600" />
+      </Head>
       <section ref={about} className={s.about_section}>
         {/* <div className="bgr"></div> */}
         <div className={s.about_wrapper}>

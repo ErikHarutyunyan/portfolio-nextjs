@@ -33,7 +33,6 @@ html {
   font-size: 14px;
   font-family: "Lato", sans-serif;
   color: #fff2cf;
-  // text-transform: uppercase;
   font-weight: 400;
   cursor: url(../assets/logo2.svg), auto;
 }
@@ -238,4 +237,8 @@ span.word_wrapper3 {
       -22px -58px 50px #ec760c, 0 -82px 80px #cd4606,
       10px -90px 80px #973716;
   }
+}
+
+#category_2{
+  order: 4;
 }
