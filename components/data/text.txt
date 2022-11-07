@@ -1,11 +1,10 @@
-I'm a Web Developer building the Front-end of Websites and Web Applications that leads to the success of the overall product. Check out some of my work in the work page. I also like sharing content related to the stuff that I have learned over the years in Web Development so it can help other people of the Dev Community. Feel free to Connect or Follow me on my Linkedin where I post useful content related to Web Development and Programming I'm open to Job opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to contact me.
+I'm a Web Developer building the Front-end of Websites and Web Applications that leads to the success of the overall product. Check out some of my work in the Work page. I also like sharing content related to the stuff that I have learned over the years in Web Development so it can help other people of the Dev Community. Feel free to connect or follow me on my Linkedin where I post useful content related to Web Development and Programming. Known for my whimsical creations, ability to context switch, and deliver innovative solutions. I'm open to Job opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to contact me, here is my CV.
+
 
 
 I’m a Front-End Developer located in Poland.
 
 Well-organised person, problem solver, independent employee with high attention to detail. Interested in the entire frontend spectrum and working on ambitious projects with positive people.
-
-I'm a freelance developer. Known for my whimsical creations, ability to context switch, and deliver innovative solutions.
 
 Typically I'll be digging in with React, architecting CSS in and out of JavaScript. I thrive on bringing ideas to life and delivering eye-catching results ahead of schedule. All whilst possessing a keen eye for design, accessibility, and well-structured code.
 

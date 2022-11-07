@@ -23,15 +23,6 @@ export default function Home() {
   const [isLoader, setLoader] = useState(true);
 
   const hero = useRef(null);
-  const about = useRef(null);
-  const work = useRef(null);
-
-  const scrollToSection = (elementRef) => {
-    window.scrollTo({
-      top: elementRef.current.offsetTop,
-      behavior: "smooth",
-    });
-  };
 
   useEffect(() => {
     setTimeout(() => setLoader(false), 5000);
@@ -89,7 +80,7 @@ export default function Home() {
       </Head>
       <main>
         {isLoader && <DynamicLoader />}
-        <section ref={hero} className={hero_section}>
+        <section className={hero_section}>
           <canvas className="p-canvas-webgl" id="canvas-webgl"></canvas>
           <ul className={nav_section}>
             <li>
