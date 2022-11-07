@@ -11,6 +11,7 @@ const Categories = ({ filterItems, allCategories }) => {
     <div className={styles.projects_filter}>
       <div className={styles.projects_title}>
         <h2>Projects.</h2>
+        <p>All projects are individual, distinctive, and unique, about me you can learn here <a href="/about" className="aboutLink">About</a> page.</p>
       </div>
       <div className={styles.projects_btn_container}>
         {allCategories.map((category, index) => {

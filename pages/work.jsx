@@ -13,7 +13,6 @@ import Head from "next/head";
 import items from "../components/data/dataProjects";
 let allCategories = ["all", ...new Set(items.map((item) => item.category).sort(function (a, b) {return a === b ? 0 : a < b ? -1 : 1}))];
 
-console.log(allCategories);
 export default function WorkSection() {
   const router = useRouter();
   const [menuItems, setMenuItems] = useState(items);

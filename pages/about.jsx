@@ -263,8 +263,8 @@ export default function AboutSection() {
               I'm a Web Developer building the Front-end of Websites and Web
               Applications that leads to the success of the overall product.
               Check out some of my work in the{" "}
-              <a href="/work" className="aboutLink" target="_blank">
-                work
+              <a href="/work" className="aboutLink">
+                Work
               </a>{" "}
               page. I also like sharing content related to the stuff that I have
               learned over the years in Web Development so it can help other
