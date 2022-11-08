@@ -283,7 +283,7 @@ export default function AboutSection() {
               opportunities where I can contribute, learn and grow. If you have
               a good opportunity that matches my skills and experience then
               don't hesitate to contact me, here is my{" "}
-              <a href="/" className="aboutLink">
+              <a href="/Erik_Cv.pdf" target="_blank" className="aboutLink">
                 CV
               </a>
               .
